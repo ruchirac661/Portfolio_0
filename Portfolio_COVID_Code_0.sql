@@ -12,31 +12,38 @@ From Portfolio_1.dbo.Covid_deaths$
 Order by 1,2
 
 --Total cases vs total deaths metric 
+
 --This field depicts the likelihood of dying from Covid, if contracted, in your country
+
 Select location, date, total_cases, total_deaths, (total_deaths/total_cases)*100 as PercentageDeaths
 From Portfolio_1.dbo.Covid_deaths$
 Where location = 'India'
 Order by 1,2
 
 --Looking at Total Cases vs Population
+
 --Shows percentage of population that contracted Covid
+
 Select location, date, total_cases, population, (total_cases/population)*100 as PercentageInfected
 From Portfolio_1.dbo.Covid_deaths$
 Where location = 'India'
 Order by 1,2
 
 --Looking at Countries with highest infection rates
+
 Select location, population, MAX(total_cases) as MaxInfectCount, MAX((total_cases/population)*100) as PercentageInfected
 From Portfolio_1.dbo.Covid_deaths$
 Group by location, population
 Order by PercentageInfected DESC
 
 --Showing Countries with highest death count
+
 Select location, MAX(cast(total_deaths as int)) as Totaldeaths
 From Portfolio_1.dbo.Covid_deaths$
 Where continent is not null
 Group by location
 Order by Totaldeaths DESC
+
 
 --Moving onto continents with corresponding death count
 
@@ -77,6 +84,7 @@ Join Portfolio_1..Covid_vaccines$ as Vacc
 	and Dea.date = Vacc.date
 Where Dea.continent is not null
 Order by 2,3
+
 
 --USING CTE
 
