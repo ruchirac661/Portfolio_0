@@ -1,3 +1,6 @@
+**The code demonstrates Data exploration using queries in order to generate insights. This particular project looks at the COVID-19 epidemic through its numbers.
+The dataset is obtained from Our World in Data website and stands up to date as of May 2022.**
+
 
 SELECT *
 FROM Portfolio_1.dbo.Covid_deaths$
