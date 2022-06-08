@@ -1,3 +1,4 @@
+
 SELECT *
 FROM Portfolio_1.dbo.Covid_deaths$
 Order by 3,4
